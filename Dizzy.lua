@@ -1,56 +1,6 @@
 local ADDON_NAME = "Dizzy"
 local DizzySavedVars
-
-
-local menuScenes = {
-    "skills",
-    "questJournal",
-    "collectionsBook",
-    "dlcBook",
-    "housingBook",
-    "itemSetsBook",
-    "tributePatronBook",
-    "groupMenuKeyboard",
-    "friendsList",
-    "ignoreList",
-    "guildHome",
-    "guildRoster",
-    "guildRanks",
-    "guildRecruitmentKeyboard",
-    "guildHistory",
-    "guildBrowserKeyboard",
-    "mailInbox",
-    "mailSend",
-    "notifications",
-    "scribingLibraryKeyboard",
-    "antiquityJournalKeyboard",
-    "loreLibrary",
-    "achievements",
-    "leaderboards",
-    "helpTutorials",
-    "helpCustomerSupport",
-    "helpEmotes",
-    "campaignBrowser",
-    "campaignOverview",
-    "giftInventoryKeyboard",
-    "helpRootGamepad",
-    "companionCollectionBookGamepad",
-    "gamepadCollectionsBook",
-    "giftInventoryGamepad",
-    "gamepad_friends",
-    "gamepad_groupList",
-    "group_finder_gamepad_list",
-    "GroupFinderGamepad",
-    "gamepad_campaign_root",
-    "gamepad_skills_root",
-    "gamepad_skills_scribing_library_root",
-    "gamepad_skills_line_filter",
-    "companionSkillsGamepad",
-    "gamepad_antiquity_journal",
-    "gamepad_quest_journal",
-    "mailGamepad",
-}
-
+local menuScenes = menuScenes
 
 
 local function ToggleCameraRotation(sceneName, enable)
@@ -88,7 +38,7 @@ end
 
 
 
--- Settings Menu. Requires LibAddonMenu.
+-- Settings Menu for LAM2. Remember to update the version number.
 local function CreateSettingsMenu()
     if not LibAddonMenu2 then
         d("|cFF0000[Dizzy]|r Missing dependency: LibAddonMenu-2.0")
@@ -101,7 +51,7 @@ local function CreateSettingsMenu()
         name = ADDON_NAME,
         displayName = "Dizzy",
         author = "|cB55AFFPurpleFinch|r",
-        version = "1.0",
+        version = "1.20",
         registerForRefresh = true,
         registerForDefaults = true,
     }
