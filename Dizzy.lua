@@ -1,6 +1,7 @@
 local ADDON_NAME = "Dizzy"
 local DizzySavedVars
 
+
 local menuScenes = {
     "skills",
     "questJournal",
@@ -31,13 +32,22 @@ local menuScenes = {
     "helpEmotes",
     "campaignBrowser",
     "campaignOverview",
+    "giftInventoryKeyboard",
+    "helpRootGamepad",
+    "companionCollectionBookGamepad",
     "gamepadCollectionsBook",
-    "gamepad_inventory_root",
+    "giftInventoryGamepad",
     "gamepad_friends",
     "gamepad_groupList",
+    "group_finder_gamepad_list",
+    "GroupFinderGamepad",
     "gamepad_campaign_root",
     "gamepad_skills_root",
-    "gamepadCollectionsBook",
+    "gamepad_skills_scribing_library_root",
+    "gamepad_skills_line_filter",
+    "companionSkillsGamepad",
+    "gamepad_antiquity_journal",
+    "gamepad_quest_journal",
     "mailGamepad",
 }
 
@@ -45,7 +55,10 @@ local menuScenes = {
 
 local function ToggleCameraRotation(sceneName, enable)
     local scene = SCENE_MANAGER.scenes[sceneName]
-    if not scene then return end
+    if not scene then
+        d(string.format("|cFF0000[Dizzy]|r Scene '%s' not found.", sceneName))
+        return
+    end
 
     if enable then
         if not scene:HasFragment(FRAME_PLAYER_FRAGMENT) then
@@ -61,7 +74,11 @@ end
 local function ApplySettings()
     -- I separated these three out for a little more creative control. The stats menu also breaks outfit selection when turned on.
     ToggleCameraRotation("stats", not DizzySavedVars.preventStatsRotation)
+    ToggleCameraRotation("gamepad_stats_root", not DizzySavedVars.preventStatsRotation)
+
     ToggleCameraRotation("inventory", not DizzySavedVars.preventInventoryRotation)
+    ToggleCameraRotation("gamepad_inventory_root", not DizzySavedVars.preventInventoryRotation)
+
     ToggleCameraRotation("gameMenuInGame", not DizzySavedVars.preventPauseRotation)
 
     for _, sceneName in ipairs(menuScenes) do
